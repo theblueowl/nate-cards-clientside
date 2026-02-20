@@ -1,6 +1,7 @@
 import { inject, Injectable, signal } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { map, Observable } from 'rxjs';
+import { MessageData } from '../pages/contact-page/contact-page.component';
 
 @Injectable({
   providedIn: 'root',
@@ -35,4 +36,7 @@ export class GeneralService {
       .observe([Breakpoints.XSmall, Breakpoints.Small, Breakpoints.Medium])
       .pipe(map((breakpoint) => breakpoint.matches));
   }
+
+  postMessage(message: MessageData): void {}
+
 }

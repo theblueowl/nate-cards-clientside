@@ -44,6 +44,10 @@ button {
   min-height: 40px;
 }
 
+textarea {
+  resize: none;
+}
+
 /* Disable the default cross-fade */
 ::view-transition-old(root),
 ::view-transition-new(root) {
