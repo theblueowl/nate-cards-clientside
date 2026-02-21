@@ -1,23 +1,23 @@
-<section class="grid grid-cols-3 gap-4 px-4 py-8">
+<section class="grid grid-cols-3 gap-4 px-4 pt-4 pb-8">
   <img
-    class="border-2 border-accent border-dashed rounded-t-full shadow-material"
-    ngSrc="/christmas_bear.jpeg"
-    width="853"
-    height="1280"
+    class="border-2 border-accent border-dashed rounded-t-full shadow-material mt-8"
+    ngSrc="/Pic09.webp"
+    width="550"
+    height="730"
     alt="Bear"
   />
   <img
-    class="border-2 border-accent border-dashed rounded-t-full shadow-material"
-    ngSrc="/christmas_bunny.jpeg"
-    width="928"
-    height="1232"
+    class="border-2 border-accent border-dashed rounded-t-full shadow-material mb-4"
+    ngSrc="/Pic05.webp"
+    width="550"
+    height="730"
     alt="Bear"
   />
   <img
-    class="border-2 border-accent border-dashed rounded-t-full shadow-material"
-    ngSrc="/christmas_fox.jpeg"
-    width="853"
-    height="1280"
+    class="border-2 border-accent border-dashed rounded-t-full shadow-material mt-8"
+    ngSrc="/Pic11.webp"
+    width="550"
+    height="730"
     alt="Bear"
   />
 </section>
@@ -26,13 +26,22 @@
   class="bg-white px-4 py-8 text-center border-b-2 border-dashed border-accent md:border-2 md:shadow-material md:mx-4"
 >
   <h2 class="text-accent text-2xl font-display mb-2">
-    <img src="/kojasumjas.svg" alt="" class="w-84 mx-auto">
+    <img src="/kojasumjas.svg" alt="" class="w-84 mx-auto" />
   </h2>
-  <p class="text-accent text-base font-body">
-    We’re Sarah and Emily, a spirited mother-daughter team whose shared love for crafting ignited a
-    journey into the enchanting world of handmade crochet creations. From whimsical toys to delicate
-    floral designs, our passion for crochet shines through in every stitch.
+  <div class="text-accent text-base font-body flex flex-col gap-2">
+  <p>
+    Јас сум Наташа, и многу сакам да правам ептен посебни подароци за моите најсакани, користејќи
+    рачно-уметнички вештини што ги имам стекнато низ годините; вештини како калиграфија,
+    традиционален графички дизајн, и восочни печати.
   </p>
+  <p>
+    Одлучив оваа љубов кон применетата уметност да
+    ја проширам и надвор од мојот потесен круг, но не можев само да направам продавница со
+    веќе-направени и готови картички; ми треба да знам по нешто за личноста за која ја правам
+    картичката или подарокот, како и конекцијата која личноста-давател ја има со личноста-примател.
+  </p>
+  <p>Затоа, доколку сакаш да „нарачаш“ подарок од мене:</p>
+  </div>
   <button
     class="outline-none bg-cDark font-body px-4 py-2 font-bold text-cLight rounded-4xl mt-4 shadow-material"
     routerLink="/contact"
@@ -42,37 +51,21 @@
 </section>
 
 <section class="flex flex-col gap-4 px-4 py-8">
-    <h2 class="text-accent text-2xl font-display mb-2">
-      <img src="/moiizrabotki.svg" alt="" class="w-64 mx-auto">
-    </h2>
+  <h2 class="text-accent text-2xl font-display mb-2">
+    <img src="/moiizrabotki.svg" alt="" class="w-64 mx-auto" />
+  </h2>
   <div class="flex flex-col md:grid md:grid-cols-2 gap-4">
-    <div class="border-8 border-white border-solid shadow-material">
-      <img
-        class="border-2 border-accent border-dashed"
-        ngSrc="/christmas_bear.jpeg"
-        width="853"
-        height="1280"
-        alt="Bear"
-      />
-    </div>
-    <div class="border-8 border-white border-solid shadow-material">
-      <img
-        class="border-2 border-accent border-dashed"
-        ngSrc="/christmas_bunny.jpeg"
-        width="928"
-        height="1232"
-        alt="Bear"
-      />
-    </div>
-    <div class="border-8 border-white border-solid shadow-material">
-      <img
-        class="border-2 border-accent border-dashed"
-        ngSrc="/christmas_fox.jpeg"
-        width="853"
-        height="1280"
-        alt="Bear"
-      />
-    </div>
+    @for (picSrc of picsArray; track picSrc) {
+      <div class="border-8 border-white border-solid shadow-material">
+        <img
+          class="border-2 border-accent border-dashed"
+          [ngSrc]="picSrc"
+          width="550"
+          height="730"
+          alt="Bear"
+        />
+      </div>
+    }
   </div>
   <button
     class="outline-none bg-cDark font-body px-8 py-2 font-bold text-cLight rounded-4xl shadow-material"

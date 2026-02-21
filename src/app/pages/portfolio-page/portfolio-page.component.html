@@ -1,1 +1,14 @@
-<p>portfolio-page works!</p>
+<div class="flex flex-col md:grid md:grid-cols-3 gap-4 py-8 px-4">
+  @for( picSrc of picsArray; track picSrc.id)
+  {
+    <div class="border-8 border-white border-solid shadow-material">
+      <img
+        class="border-2 border-accent border-dashed"
+        [ngSrc]="picSrc.src"
+        width="550"
+        height="730"
+        [alt]="picSrc.alt"
+      />
+    </div>
+  }
+</div>

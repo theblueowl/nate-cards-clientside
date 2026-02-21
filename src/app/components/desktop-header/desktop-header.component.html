@@ -1,20 +1,18 @@
 <header class="flex justify-between items-center p-4">
   <div class="font-display text-2xl text-accent cursor-pointer" routerLink="/">
-    <img src="/natecardslogo.svg" alt="" class="h-12 w-12" />
+    <img src="/natecardslogo.svg" alt="" class="h-14 w-14" />
   </div>
-  <nav class="flex gap-4 font-body">
+  <nav class="flex gap-4 font-body mt-4">
     @for (item of navItems; track item.id) {
       <div
-        class="text-base text-accent cursor-pointer font-semibold py-2 px-2"
+        class="text-base text-accent cursor-pointer font-semibold py-2 px-2 min-w-35 text-center"
         [routerLink]="item.route"
-        routerLinkActive="active"
+        routerLinkActive="bg-cDark text-white rounded-4xl shadow-material border-2 border-dashed border-white"
         [routerLinkActiveOptions]="{ exact: true }"
       >
-        {{ item.id }}.{{ item.name }}
+        {{ item.name }}
       </div>
     }
   </nav>
 </header>
-<div class="banner bg-primary py-4 shadow-material">
-  <img src="/natevines.svg" alt="Vines drawing" class="vines" />
-</div>
+<img src="/natevinescolored.png" alt="Vines drawing" />
