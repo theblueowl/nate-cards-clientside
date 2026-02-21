@@ -1,7 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, DestroyRef, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ButtonComponent } from '../../components/button/button.component';
 import { NgxCaptchaModule } from 'ngx-captcha';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { GeneralService } from '../../services/general.service';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { environment } from '../../../environments/environment';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'contact-page',
@@ -10,7 +15,11 @@ import { NgxCaptchaModule } from 'ngx-captcha';
   styleUrl: './contact-page.component.css',
 })
 export class ContactPageComponent {
-  public siteKey = '';
+  private readonly generalService = inject(GeneralService);
+  private readonly destroyRef = inject(DestroyRef);
+  public readonly router = inject(Router);
+  private readonly snackBar = inject(MatSnackBar);
+  public siteKey = environment.siteKey;
 
   public commentForm = new FormGroup({
     email: new FormControl('', [Validators.required]),
@@ -26,6 +35,20 @@ export class ContactPageComponent {
       message: this.commentForm.value.message,
       'g-recaptcha-response': this.commentForm.value.captcha,
     };
+
+    this.generalService
+      .postMessage(formData)
+      .pipe(takeUntilDestroyed(this.destroyRef))
+      .subscribe({
+        next: (res) => {
+          this.snackBar
+            .open('❤️ Ви благодарам на довербата!', 'Затвори', { duration: 2000 })
+            .afterOpened()
+            .subscribe(() => {
+              void this.router.navigate(['/']);
+            });
+        },
+      });
   }
 }
 
