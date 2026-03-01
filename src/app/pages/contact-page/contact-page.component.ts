@@ -19,7 +19,7 @@ export class ContactPageComponent {
   private readonly destroyRef = inject(DestroyRef);
   public readonly router = inject(Router);
   private readonly snackBar = inject(MatSnackBar);
-  public siteKey = '6LfwpnIsAAAAAFF22xER3zhQZcXvYmyRPjfjA1tI';
+  public siteKey = environment.siteKey;
 
   public commentForm = new FormGroup({
     email: new FormControl('', [Validators.required]),
