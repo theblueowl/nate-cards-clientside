@@ -1,0 +1,11 @@
+.button {
+  color: var(--color-cLight);
+}
+
+button:disabled > p {
+  color: var(--color-primary) !important;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}

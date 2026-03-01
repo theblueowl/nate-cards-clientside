@@ -11,7 +11,7 @@ import { environment } from '../../environments/environment';
 export class GeneralService {
   private readonly breakpointObserver = inject(BreakpointObserver);
   private readonly http = inject(HttpClient);
-  private readonly formSpreeUrl = environment.formSpreeUrl;
+  private readonly formSpreeUrl = 'xvzbbjka';
 
   private readonly _isOpen = signal(false);
   private readonly _isMobileView = signal(false);
