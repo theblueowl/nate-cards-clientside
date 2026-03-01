@@ -34,14 +34,22 @@
       ></textarea>
       <small>{{ commentForm.controls.message.value?.length }}/1500</small>
     </label>
-    <ngx-recaptcha2
-      #captchaElem
-      [siteKey]="siteKey"
-      [useGlobalDomain]="false"
-      formControlName="captcha"
-      class="my-3"
-    >
-    </ngx-recaptcha2>
+    <div class="flex gap-2">
+      <ngx-recaptcha2
+        #captchaElem
+        [siteKey]="siteKey"
+        [useGlobalDomain]="false"
+        formControlName="captcha"
+        class="my-3"
+      >
+      </ngx-recaptcha2>
+      <div class="text-red-500 font-bold">*</div>
+    </div>
+    @if(!commentForm.valid) {
+      <p class="self-start text-xs text-red-500">
+        (<span class="font-bold">*</span>) Полињата се задолжителни.
+      </p>
+    }
     <app-button
       class="block w-full"
       [btnValid]="commentForm.valid"
