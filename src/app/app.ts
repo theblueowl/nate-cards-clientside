@@ -3,13 +3,11 @@ import { GeneralService } from './services/general.service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { MobileViewComponent } from './pages/views/mobile-view/mobile-view.component';
 import { DesktopViewComponent } from './pages/views/desktop-view/desktop-view.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @Component({
   selector: 'app-root',
-  imports: [
-    MobileViewComponent,
-    DesktopViewComponent,
-  ],
+  imports: [MobileViewComponent, DesktopViewComponent, FooterComponent],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
