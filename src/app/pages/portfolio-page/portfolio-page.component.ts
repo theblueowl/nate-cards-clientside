@@ -10,6 +10,11 @@ import { NgOptimizedImage } from '@angular/common';
 export class PortfolioPageComponent {
   protected picsArray: ImageInfo[] = [
     {
+      id: 12,
+      src: '/Pic12.webp',
+      alt: '',
+    },
+    {
       id: 3,
       src: '/Pic03.webp',
       alt: '',

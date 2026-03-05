@@ -1,14 +1,14 @@
 <section class="grid grid-cols-3 gap-4 px-4 pt-4 pb-8">
   <img
     class="border-2 border-accent border-dashed rounded-t-full shadow-material mt-8"
-    ngSrc="/Pic09.webp"
+    ngSrc="/Pic05.webp"
     width="550"
     height="730"
     alt="Bear"
   />
   <img
     class="border-2 border-accent border-dashed rounded-t-full shadow-material mb-4"
-    ngSrc="/Pic05.webp"
+    ngSrc="/Pic12.webp"
     width="550"
     height="730"
     alt="Bear"
@@ -55,11 +55,11 @@
     <img src="/moiizrabotki.svg" alt="" class="w-64 mx-auto" />
   </h2>
   <div class="flex flex-col md:grid md:grid-cols-2 gap-4">
-    @for (picSrc of picsArray; track picSrc) {
+    @for (picSrc of picsList; track picSrc.id) {
       <div class="border-8 border-white border-solid shadow-material">
         <img
           class="border-2 border-accent border-dashed"
-          [ngSrc]="picSrc"
+          [ngSrc]="picSrc.src"
           width="550"
           height="730"
           alt="Bear"
